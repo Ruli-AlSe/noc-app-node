@@ -1,3 +1,9 @@
-export const name: string = 'Raul Almanza!!';
+import { Server } from './presentation/server';
 
-console.log(name);
+(() => {
+  main();
+})();
+
+function main() {
+  Server.start();
+}
