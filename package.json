@@ -1,0 +1,20 @@
+{
+  "name": "05-noc-app",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "tsnd --respawn src/app.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node ./dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.7.6",
+    "rimraf": "^6.0.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  }
+}
