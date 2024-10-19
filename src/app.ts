@@ -24,8 +24,8 @@ async function main() {
   // await newLog.save();
 
   // get all records from mongodb
-  const logs = await LogModel.find();
-  console.log({ logs });
+  // const logs = await LogModel.find();
+  // console.log({ logs });
 
-  // Server.start();
+  Server.start();
 }
