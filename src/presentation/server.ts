@@ -12,15 +12,7 @@ export class Server {
 
     // const url = 'http://localhost:3000/posts';
     const emailService = new EmailService();
-    emailService.sendEmail({
-      to: 'ibyzarecidence@gmail.com',
-      subject: 'System logs',
-      htmlBody: `
-          <h3>System logs - NOC app</h3>
-          <p>This is a test email</p>
-          <p>See attached logs</p>
-          `,
-    });
+    emailService.sendEmailWithFileSystemLogs(['ibyzarecidence@gmail.com']);
     const url = 'http://google.com';
 
     CronService.createJob('*/5 * * * * *', () => {
