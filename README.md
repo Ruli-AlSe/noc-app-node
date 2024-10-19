@@ -1,5 +1,10 @@
 # NOC app
 
+# dev
+
+1. Clone the .env.template to .env
+2. Configure env variables in .env
+
 ## Available Scripts
 
 In the project directory, you can run:
