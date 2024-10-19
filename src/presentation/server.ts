@@ -11,7 +11,7 @@ export class Server {
     console.log('Server started...');
 
     // const url = 'http://localhost:3000/posts';
-    const emailService = new EmailService();
+    const emailService = new EmailService(fileSystemLogRepository);
     emailService.sendEmailWithFileSystemLogs(['ibyzarecidence@gmail.com']);
     const url = 'http://google.com';
 
