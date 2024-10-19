@@ -8,7 +8,9 @@ const fileSystemLogRepository = new LogRepositoryImplementation(new FileSystemDa
 export class Server {
   public static start() {
     console.log('Server started...');
-    const url = 'http://localhost:3000/posts';
+
+    // const url = 'http://localhost:3000/posts';
+    const url = 'http://google.com';
 
     CronService.createJob('*/5 * * * * *', () => {
       new CheckService(
