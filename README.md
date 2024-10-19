@@ -4,16 +4,12 @@
 
 1. Clone the .env.template to .env
 2. Configure env variables in .env
+3. Run `npm install`
+4. Build databases in docker `docker compose up -d`
 
 ## Available Scripts
 
 In the project directory, you can run:
-
-#### To install all dependencies
-
-```
-npm install
-```
 
 #### To run the app in development mode
 
