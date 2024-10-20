@@ -1,5 +1,6 @@
 import { LogSeverityLevel } from '../domain/entities/log.entity';
-import { CheckService } from '../domain/use-cases/checks/check.service';
+import { CheckService } from '../domain/use-cases/checks/check-service';
+import { CheckServiceMultiple } from '../domain/use-cases/checks/check-service-multiple';
 import { SendEmailLogs } from '../domain/use-cases/email/send-email-logs';
 import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
 import { MongoLogDatasource } from '../infrastructure/datasources/mongo-log.datasource';
@@ -8,11 +9,9 @@ import { LogRepositoryImplementation } from '../infrastructure/repositories/log.
 import { CronService } from './cron/cron.service';
 import { EmailService } from './email/email.service';
 
-const logRepository = new LogRepositoryImplementation(
-  // new FileSystemDataSource()
-  // new MongoLogDatasource()
-  new PostgresLogDatasource()
-);
+const fsLogRepository = new LogRepositoryImplementation(new FileSystemDataSource());
+const mongoLogRepository = new LogRepositoryImplementation(new MongoLogDatasource());
+const postgreslogRepository = new LogRepositoryImplementation(new PostgresLogDatasource());
 const emailService = new EmailService();
 
 export class Server {
@@ -26,8 +25,8 @@ export class Server {
     const url = 'http://google.com';
 
     CronService.createJob('*/5 * * * * *', () => {
-      new CheckService(
-        logRepository,
+      new CheckServiceMultiple(
+        [fsLogRepository, mongoLogRepository, postgreslogRepository],
         () => console.log(`${url} is ok!`),
         (error) => console.log(error)
       ).execute(url);
