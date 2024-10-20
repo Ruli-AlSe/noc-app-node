@@ -3,5 +3,9 @@ node_modules/
 dist/
 logs/
 .env
-mongo/
+/mongo/
 postgres/
+mongo-test/
+postgres-test/
+coverage/
+.env.test
