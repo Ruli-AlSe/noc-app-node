@@ -9,7 +9,7 @@
     "test": "npm run docker:test && jest",
     "test:watch": "npm run docker:test && jest --watch",
     "test:coverage": "npm run docker:test && jest --coverage",
-    "docker:test": "docker-compose -f docker-compose.test.yml --env-file .env.test up -d"
+    "docker:test": "docker compose -f docker-compose.test.yml --env-file .env.test up -d"
   },
   "keywords": [],
   "author": "",

@@ -10,7 +10,7 @@ services:
     volumes:
       - ./mongo-test:/data/db
     ports:
-      - 27018:27017
+      - 27019:27017
 
   postgres-db:
     image: postgres:16.4
@@ -22,4 +22,4 @@ services:
     volumes:
       - ./postgres-test:/var/lib/postgresql/data
     ports:
-      - 5433:5432
+      - 5434:5432
